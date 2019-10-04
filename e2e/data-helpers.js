@@ -33,9 +33,33 @@ function getFromPathAsUser(path, user, status = 200) {
     .expect(status);
 }
 
+function favoriteJokeIdAsUser(id, user) {
+  return request
+    .put(`/api/me/favorites/${id}`)
+    .set('Authorization', user.token)
+    .expect(200);
+}
+
+function removeFavoriteJokeIdAsUser(id, user) {
+  return request
+    .delete(`/api/me/favorites/${id}`)
+    .set('Authorization', user.token)
+    .expect(200);
+}
+
+function getfavoritesAsUser(user) {
+  return request
+    .get(`/api/me/favorites`)
+    .set('Authorization', user.token)
+    .expect(200);
+}
+
 module.exports = {
   signupUser,
   postJokeAsUser,
-  getFromPathAsUser
+  getFromPathAsUser,
+  favoriteJokeIdAsUser,
+  getfavoritesAsUser,
+  removeFavoriteJokeIdAsUser,
 };
 
