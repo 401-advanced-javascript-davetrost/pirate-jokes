@@ -1,4 +1,3 @@
-const request = require('../request');
 const db = require('../db');
 const { signupUser, postJokeAsUser, favoriteJokeIdAsUser, getfavoritesAsUser, removeFavoriteJokeIdAsUser } = require('../data-helpers');
 
